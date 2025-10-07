@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
         />
         <div className="p-4">
           <h2 className="text-lg font-semibold">{product.title}</h2>
-          <p className="text-green-600 mt-1">${product.price.toFixed(2)}</p>
+          <p className="text-green-600 mt-1">${product.price}</p>
         </div>
       </Link>
 
