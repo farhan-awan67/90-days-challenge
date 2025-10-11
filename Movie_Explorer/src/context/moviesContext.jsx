@@ -16,7 +16,7 @@ export const Moviesprovider = ({ children }) => {
     try {
       // movie by name
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=${movieName}&apikey=${
+        `https://www.omdbapi.com/?s=${movieName}&apikey=${
           import.meta.env.VITE_OMDBI_KEY
         }`
       );
@@ -31,7 +31,7 @@ export const Moviesprovider = ({ children }) => {
         Movies.map((movie) =>
           axios
             .get(
-              `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${
+              `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=${
                 import.meta.env.VITE_OMDBI_KEY
               }`
             )
