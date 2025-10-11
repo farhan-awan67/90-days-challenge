@@ -1,20 +1,18 @@
-import { useState, useEffect } from "react";
-import MovieGrid from "../components/MovieGrid";
 import SearchBar from "../components/SearchBar";
+import MovieList from "../components/MovieList";
+import Loading from "../components/Loading";
+import { useMovieContext } from "../context/moviesContext";
+// import Pagination from "../components/Pagination";
 
-
-export default function HomePage() {
-  const [movies, setMovies] = useState(mockMovies);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filtered = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
+const HomePage = () => {
+  const { specificMovie, loading } = useMovieContext();
   return (
-    <div>
-      <SearchBar onSearch={setSearchTerm} />
-      <MovieGrid movies={filtered} />
+    <div className="p-4">
+      <SearchBar />
+      {loading ? <Loading /> : <MovieList movieList={specificMovie} />}
+      {/* <Pagination /> */}
     </div>
   );
-}
+};
+
+export default HomePage;

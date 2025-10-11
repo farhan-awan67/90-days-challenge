@@ -1,19 +1,6 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import FavoriteButton from "../components/FavoriteButton";
 
-
 export default function MoviePage() {
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-
-  useEffect(() => {
-    const found = allMovies.find((m) => m.id === parseInt(id));
-    setMovie(found);
-  }, [id]);
-
-  if (!movie) return <div className="p-4">Movie not found.</div>;
-
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <div className="flex flex-col md:flex-row gap-6">
